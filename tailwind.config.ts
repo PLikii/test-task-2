@@ -8,9 +8,31 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        raleway: ["Raleway", "sans-serif"],
+      },
+      fontWeight: {
+        thin: "100",
+        extralight: "200",
+        light: "300",
+        regular: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
+        extrabold: "800",
+        black: "900",
+      },
       colors: {
         background: "var(--background)",
-        foreground: "var(--foreground)",
+        title: "var(--title)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        destructive: "var(--destructive)",
+        description: "var(--description)",
+        accent: "var(--accent)",
+        border: "var(--border)",
+        card: "var(--card)",
+        input: "var(--input)",
       },
     },
   },
