@@ -1,6 +1,6 @@
 {
-  "name": "next-15-boilerplate",
-  "version": "0.0.0",
+  "name": "storage",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -10,10 +10,15 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@heroui/navbar": "^2.2.9",
     "@t3-oss/env-nextjs": "^0.11.1",
     "aos": "^2.3.4",
     "jiti": "^2.4.2",
     "lodash": "^4.17.21",
+    "mongoose": "^8.10.0",
     "next": "^15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -26,6 +31,7 @@
     "@types/react": "^19.0.6",
     "@types/react-dom": "^19.0.3",
     "cz-conventional-changelog": "^3.3.0",
+    "daisyui": "^4.12.23",
     "husky": "^9.1.7",
     "lint-staged": "^15.3.0",
     "postcss": "^8.4.49",
