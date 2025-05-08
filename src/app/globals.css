@@ -33,6 +33,6 @@
 
 body {
   color: var(--description);
-  background: var(--background);
+  background-color: white;
   font-family: "Raleway", sans-serif;
 }
