@@ -1,1 +1,1 @@
-Maxym Hnatyshyn is a Front-end developer with over 2 years of experience in JavaScript, React, Next.js, and TypeScript. I hold a degree in Software Engineering (Bachelor’s and Master's). I specialize in creating responsive websites, API integration, and UI/UX design using Tailwind CSS.
+
