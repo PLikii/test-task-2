@@ -12,7 +12,7 @@ export default function SignOut() {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      router.push("/login"); // або головна
+      router.push("/login");
     } catch (_err) {
       Swal.fire({
         icon: "error",

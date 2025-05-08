@@ -48,7 +48,6 @@ export const addTodoItem = async (todoListId: string) => {
           completed: false
         };
 
-        // Додаємо нову задачу
         await updateDoc(todoListRef, {
           todoList: arrayUnion(newTodoItem)
         });
