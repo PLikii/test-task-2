@@ -31,7 +31,7 @@ export default function SignOut() {
           onClick={handleLogout}
           className="m-6 rounded bg-red-500 px-3 py-1 text-white hover:bg-red-600"
         >
-          Вийти
+          Go out
         </button>
       </div>
     </div>

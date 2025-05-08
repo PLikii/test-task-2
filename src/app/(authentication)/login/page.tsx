@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import InputForm from "@/components/authentication/inputForm";
 import { auth } from "@/lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Swal from "sweetalert2";
-import InputForm from "@/components/authentication/inputForm";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,16 +24,16 @@ export default function Login() {
       const user = userCredential.user;
 
       Swal.fire({
-        title: "Успішно!",
-        text: `Вітаю, ${user.email}!`,
+        title: "Successfully!",
+        text: `Congratulations, ${user.email}!`,
         icon: "success",
         confirmButtonText: "Ок",
       });
       router.push("/dashboard");
-    } catch (err: any) {
+    } catch (_err) {
       Swal.fire({
         icon: "error",
-        title: err,
+        title: "Erroe",
         text: "Something went wrong!",
         confirmButtonText: "Ок",
       });

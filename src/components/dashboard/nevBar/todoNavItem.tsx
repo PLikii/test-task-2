@@ -1,11 +1,12 @@
 "use client";
 
 import type { TodoListInterface } from "@/types/todoListInterface";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
+import { addAdminToList } from "@/services/addAdminToList";
+import { addUserToList } from "@/services/addUserToList";
 import { deleteTodoList } from "@/services/deleteTodoList";
 import { editTodoListName } from "@/services/editTodoListName";
-import { addUserToList } from "@/services/addUserToList";
 import Link from "next/link";
 
 interface TodoNavItemProps {
@@ -56,9 +57,16 @@ const TodoNavItem: React.FC<TodoNavItemProps> = ({ list }) => {
           {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
           <li
             className="cursor-pointer px-4 py-2 hover:bg-gray-100"
-            onClick={() => addUserToList(list.id)} // Викликаємо функцію
+            onClick={() => addUserToList(list.id)}
           >
             ➕ Add
+          </li>
+          {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+          <li
+            className="cursor-pointer px-4 py-2 hover:bg-gray-100"
+            onClick={() => addAdminToList(list.id)}
+          >
+            ➕ admin
           </li>
           {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
           <li

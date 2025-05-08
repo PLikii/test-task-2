@@ -1,9 +1,9 @@
 "use client";
 
+import { auth, db } from "@/lib/firebase";
+import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
-import { auth, db } from "@/lib/firebase"; // імпортуємо firebase
 import Swal from "sweetalert2";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 export default function CreateLists() {
   const [loading, setLoading] = useState(false);
@@ -56,7 +56,7 @@ export default function CreateLists() {
     }
   };
 
-  return ( 
+  return (
     <div className=" flex items-center justify-between p-4 ">
       <button
         type="button"

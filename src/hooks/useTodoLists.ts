@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
 import { db } from "@/lib/firebase";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
-import Swal from "sweetalert2";
 import type { TodoListInterface } from "@/types/todoListInterface";
 import type { User } from "firebase/auth";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 export const useTodoLists = (user: User | null) => {
   const [todoLists, setTodoLists] = useState<TodoListInterface[]>([]);

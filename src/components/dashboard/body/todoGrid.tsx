@@ -1,6 +1,6 @@
 'use client'
 import { useTodoStore } from "@/store/store";
-import { TodoListInterface } from "@/types/todoListInterface";
+import type { TodoListInterface } from "@/types/todoListInterface";
 import { useParams } from "next/navigation";
 import TodoItems from "./todoItem";
 

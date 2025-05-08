@@ -1,11 +1,11 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { TodoListInterface } from "@/types/todoListInterface";
+import type { TodoListInterface } from "@/types/todoListInterface";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 export const UpdateTaskStatus = async (
-  todoListId: string, 
-  taskId: string, 
-  updatedCompleted: boolean
+  todoListId: string,
+  taskId: string,
+  updatedCompleted: boolean,
 ) => {
   try {
     const todoListRef = doc(db, "todoLists", todoListId);
@@ -18,8 +18,8 @@ export const UpdateTaskStatus = async (
         throw new Error("Todo list or todoList array is not defined");
       }
 
-      const updatedTodoList = todoListData.todoList.map(todo => 
-        todo.id === taskId ? { ...todo, completed: updatedCompleted } : todo
+      const updatedTodoList = todoListData.todoList.map(todo =>
+        todo.id === taskId ? { ...todo, completed: updatedCompleted } : todo,
       );
 
       if (updatedTodoList.find(todo => todo.id === taskId) === undefined) {

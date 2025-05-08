@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import TodoNavItem from "./todoNavItem";
-import type { TodoListInterface } from "@/types/todoListInterface";
 import { useTodoStore } from "@/store/store";
-
-
+import type { TodoListInterface } from "@/types/todoListInterface";
+import { useEffect, useRef, useState } from "react";
+import TodoNavItem from "./todoNavItem";
 
 export default function TodoNav() {
   const todoLists = useTodoStore(state => state.todoLists);
@@ -58,8 +56,6 @@ export default function TodoNav() {
       setButtonPosition(buttonRef.current.getBoundingClientRect());
     }
   };
-
-
 
   return (
     <div

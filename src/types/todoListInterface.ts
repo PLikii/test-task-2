@@ -1,5 +1,5 @@
 import type { Timestamp } from "firebase/firestore";
-import { TodoItem } from "./TodoItemTypes";
+import type { TodoItem } from "./TodoItemTypes";
 
 export interface TodoListInterface {
   id: string;

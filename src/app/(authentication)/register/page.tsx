@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import InputForm from "@/components/authentication/inputForm";
 import { auth } from "@/lib/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Swal from "sweetalert2";
-import InputForm from "@/components/authentication/inputForm";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -35,7 +35,7 @@ export default function RegisterForm() {
         confirmButtonText: "Ок",
       });
       router.push("/dashboard");
-    } catch (err: any) { 
+    } catch (err: any) {
       Swal.fire({
         icon: "error",
         title: err,

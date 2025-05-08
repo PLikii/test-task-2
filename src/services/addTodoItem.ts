@@ -1,8 +1,8 @@
-import { TodoItem } from "@/types/TodoItemTypes";
-import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
-import Swal from "sweetalert2";
-import { TodoListInterface } from "@/types/todoListInterface";
 import { db } from "@/lib/firebase";
+import type { TodoItem } from "@/types/TodoItemTypes";
+import type { TodoListInterface } from "@/types/todoListInterface";
+import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 export const addTodoItem = async (todoListId: string) => {
   try {
@@ -20,44 +20,49 @@ export const addTodoItem = async (todoListId: string) => {
         focusConfirm: false,
         preConfirm: () => {
           return {
-            title: (document.getElementById("swal-input1") as HTMLInputElement).value,
-            description: (document.getElementById("swal-input2") as HTMLTextAreaElement).value
+            title: (document.getElementById("swal-input1") as HTMLInputElement)
+              .value,
+            description: (
+              document.getElementById("swal-input2") as HTMLTextAreaElement
+            ).value,
           };
-        }
+        },
       });
 
       if (formValues) {
         const { title, description } = formValues;
 
         if (!title.trim() || !description.trim()) {
-          Swal.fire('Title and description cannot be empty!', '', 'warning');
+          Swal.fire("Title and description cannot be empty!", "", "warning");
           return;
         }
 
-        const existingTodo = todoListData.todoList.find((item: TodoItem) => item.title.toLowerCase() === title.toLowerCase());
+        const existingTodo = todoListData.todoList.find(
+          (item: TodoItem) => item.title.toLowerCase() === title.toLowerCase(),
+        );
 
         if (existingTodo) {
-          Swal.fire('This task already exists!', '', 'warning');
+          Swal.fire("This task already exists!", "", "warning");
           return;
         }
 
         const newTodoItem: TodoItem = {
-          id: `${Date.now()}`, 
+          id: `${Date.now()}`,
           title,
           description,
-          completed: false
+          completed: false,
         };
 
         await updateDoc(todoListRef, {
-          todoList: arrayUnion(newTodoItem)
+          todoList: arrayUnion(newTodoItem),
         });
 
-        Swal.fire('Task added!', '', 'success');
+        Swal.fire("Task added!", "", "success");
       }
     } else {
-      Swal.fire('List not found', '', 'error');
+      Swal.fire("List not found", "", "error");
     }
   } catch (error) {
-    Swal.fire('Error adding task', '', 'error');
+    Swal.fire("Error adding task", "", "error");
   }
 };

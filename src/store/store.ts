@@ -1,5 +1,5 @@
-import { create } from "zustand";
 import type { TodoListInterface } from "@/types/todoListInterface";
+import { create } from "zustand";
 
 interface TodoStore {
   todoLists: TodoListInterface[];

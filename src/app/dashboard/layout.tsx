@@ -2,10 +2,10 @@
 
 import NavBar from "@/components/dashboard/nevBar/navBar";
 import { useAuth } from "@/hooks/useAuth";
+import { useTodoLists } from "@/hooks/useTodoLists";
 import { useTodoStore } from "@/store/store";
 import { useRouter } from "next/navigation";
 import { type ReactNode, useEffect } from "react";
-import { useTodoLists } from "@/hooks/useTodoLists";
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const { user, loading } = useAuth();
@@ -18,7 +18,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     }
   }, [todoLists, setTodoLists]);
 
-  useEffect(() => { 
+  useEffect(() => {
     if (!(loading || user)) {
       router.replace("/login");
     }

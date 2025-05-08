@@ -1,6 +1,6 @@
-import Swal from "sweetalert2";
 import { db } from "@/lib/firebase";
 import { doc, updateDoc } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 export async function editTodoListName(id: string, currentName: string) {
   const { value: newName } = await Swal.fire({
