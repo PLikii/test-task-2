@@ -3,7 +3,7 @@ import TodoGrid from "@/components/dashboard/body/todoGrid";
 
 export default function DashboardID() {
   return (
-    <div className="text-3xl p-10 text-title  grid grid-cols-2">
+    <div className="grid grid-cols-2 p-10 text-3xl text-title">
       <TodoGrid />
       <AdTodoItem />
     </div>

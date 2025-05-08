@@ -14,15 +14,15 @@ export default function AdTodoItem() {
   const { user } = useAuth();
   const isAdmin = list?.admin?.includes(user?.email || "") ?? false;
   if (!list) {
-    return <div className="text-xl p-10 text-red-500">Список не знайдений</div>;
+    return <div className="p-10 text-red-500 text-xl">Список не знайдений</div>;
   }
 
   return (
-    <div className="text-3xl p-10 text-title text-center">
+    <div className="p-10 text-center text-3xl text-title">
       <h1>{list.name}</h1>
       {isAdmin ? (
         <button
-          className="mt-5 p-2 bg-blue-500 text-white rounded"
+          className="mt-5 rounded bg-blue-500 p-2 text-white"
           onClick={() => addTodoItem(id as string)}
         >
           Add task

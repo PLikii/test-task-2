@@ -11,7 +11,7 @@ export default function TodoGrid() {
   const listId = Array.isArray(id) ? id[0] : id;
 
   if (!listId) {
-    return <div className="text-xl p-10 text-red-500">Todo not found</div>;
+    return <div className="p-10 text-red-500 text-xl">Todo not found</div>;
   }
 
   const list: TodoListInterface | undefined = todoLists.find(
@@ -19,11 +19,11 @@ export default function TodoGrid() {
   );
 
   if (!list) {
-    return <div className="text-xl p-10 text-red-500">Список не знайдений</div>;
+    return <div className="p-10 text-red-500 text-xl">Список не знайдений</div>;
   }
 
   return (
-    <div className="text-2xl p-10 text-title grid grid-cols-2 gap-10">
+    <div className="grid grid-cols-2 gap-10 p-10 text-2xl text-title">
       {list?.todoList.map(todo => (
         <TodoItems
           key={todo.id}

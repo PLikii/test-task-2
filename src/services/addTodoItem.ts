@@ -32,7 +32,7 @@ export const addTodoItem = async (todoListId: string) => {
       if (formValues) {
         const { title, description } = formValues;
 
-        if (!title.trim() || !description.trim()) {
+        if (!(title.trim() && description.trim())) {
           Swal.fire("Title and description cannot be empty!", "", "warning");
           return;
         }
@@ -62,7 +62,7 @@ export const addTodoItem = async (todoListId: string) => {
     } else {
       Swal.fire("List not found", "", "error");
     }
-  } catch (error) {
+  } catch (_error) {
     Swal.fire("Error adding task", "", "error");
   }
 };

@@ -10,7 +10,6 @@ export const deleteTodoItem = async (
     const todoListDoc = await getDoc(todoListRef);
 
     if (!todoListDoc.exists()) {
-      console.error(`Todo list with ID ${todoListId} does not exist`);
       return;
     }
     const todoListData = todoListDoc.data();
@@ -21,7 +20,5 @@ export const deleteTodoItem = async (
     await updateDoc(todoListRef, {
       todoList: updatedTodoList,
     });
-  } catch (error) {
-    console.error("Error deleting task:", error);
-  }
+  } catch (_error) {}
 };

@@ -14,7 +14,7 @@ export const UpdateTaskStatus = async (
     if (todoListDoc.exists()) {
       const todoListData = todoListDoc.data() as TodoListInterface;
 
-      if (!todoListData || !Array.isArray(todoListData.todoList)) {
+      if (!(todoListData && Array.isArray(todoListData.todoList))) {
         throw new Error("Todo list or todoList array is not defined");
       }
 
@@ -29,12 +29,7 @@ export const UpdateTaskStatus = async (
       await updateDoc(todoListRef, {
         todoList: updatedTodoList,
       });
-
-      console.log("Task completion status updated.");
     } else {
-      console.error("Todo list not found");
     }
-  } catch (error) {
-    console.error("Error updating task completion status:", error);
-  }
+  } catch (_error) {}
 };

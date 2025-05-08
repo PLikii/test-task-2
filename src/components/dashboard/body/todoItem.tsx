@@ -68,7 +68,7 @@ export default function Todoitems({
           ) as HTMLTextAreaElement
         )?.value.trim();
 
-        if (!title || !description) {
+        if (!(title && description)) {
           Swal.showValidationMessage("Both title and description are required");
           return;
         }
@@ -86,10 +86,10 @@ export default function Todoitems({
   };
 
   return (
-    <div className="text-2xl p-10 text-title grid border-2 border-gray-500 rounded-2xl space-y-4">
-      <div className=" flex justify-between  items-center">
+    <div className="grid space-y-4 rounded-2xl border-2 border-gray-500 p-10 text-2xl text-title">
+      <div className=" flex items-center justify-between">
         <div>{title}</div>
-        <div className=" text-base flex space-x-3">
+        <div className=" flex space-x-3 text-base">
           {isAdmin ? (
             <>
               <button type="button" onClick={handleEdit}>
