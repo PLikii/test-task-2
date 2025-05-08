@@ -1,4 +1,3 @@
-// TodoGreed.tsx
 'use client'
 import { useTodoStore } from "@/store/store";
 import { TodoListInterface } from "@/types/todoListInterface";
@@ -15,10 +14,10 @@ export default function TodoGrid() {
         return <div className="text-xl p-10 text-red-500">Todo not found</div>;
     }
 
-    const list: TodoListInterface = todoLists.find((todo) => todo.id === listId);
+    const list: TodoListInterface | undefined = todoLists.find((todo) => todo.id === listId);
 
     if (!list) {
-        return <div className="text-xl p-10 text-red-500">Todo not found</div>;
+        return <div className="text-xl p-10 text-red-500">Список не знайдений</div>;
     }
 
     return (
